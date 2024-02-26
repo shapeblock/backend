@@ -1,0 +1,6 @@
+Django
+djangorestframework
+psycopg2-binary
+django-environ
+django-allauth
+dj-rest-auth

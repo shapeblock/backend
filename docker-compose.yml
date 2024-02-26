@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  shapeblock:
+    build: .
+    volumes:
+      - .:/app
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env.sb
+
+  db:
+    image: postgres:16
+    volumes:
+      - shapeblock_db_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env.sb
+
+volumes:
+  shapeblock_db_data: {}
