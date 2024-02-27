@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     # custom
     "shapeblock.authentication.apps.AuthenticationConfig",
+    "shapeblock.providers.apps.ProvidersConfig",
 ]
 
 MIDDLEWARE = [
@@ -150,3 +151,5 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ]
 }
+
+FERNET_KEYS = env.list('FERNET_KEYS')

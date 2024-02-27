@@ -4,3 +4,4 @@ psycopg2-binary
 django-environ
 django-allauth
 dj-rest-auth
+django-fernet-fields @ git+https://github.com/badri/django-fernet-fields.git@django-4.2
