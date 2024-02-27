@@ -144,6 +144,32 @@ ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": '[{asctime}] {levelname} "{name}" {message}',
+            "style": "{",
+            "datefmt": "%d/%b/%Y %H:%M:%S",  # match Django server time format
+        },
+    },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "formatter": "verbose"},
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": env("DJANGO_LOG_LEVEL", default="INFO"),
+        },
+        "shapeblock": {
+            "handlers": ["console"],
+            "level": env("SHAPEBLOCK_LOG_LEVEL", default="INFO"),
+        },
+    },
+}
+
+
 # Rest fw
 
 REST_FRAMEWORK = {
